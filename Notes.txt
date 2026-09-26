@@ -49,6 +49,7 @@ job: -> actual job
 
             who-to-greet" -> is NOT a GitHub keyword. It is a custom input parameter defined by a specific action you're using.
 
+==============================================================================================================================================
 
 we can add structure so that we can make it more structured by adding the dependency in form of need specification.
 we can use "need" key to ake Dependency whih depends on what 
@@ -56,5 +57,48 @@ workflow form a Directed Acyclic graph(DAG) -> we need to specife the structure
 
 it helps use to tak eoutput from one job and pass on to another job
 
+===============================================================================================================================================
 
 for the env pass it follows the same global and local rule as coding language
+
+pass vaiable:
+1. Intra-job: 
+    A. Step Output: Recommended for passing data
+
+        Step ID -> generate step id
+            write to $GITHUB_OUTPUT
+                echo "foo=bar" >> $GITHUB_OUTPUT -> this tells that i ahve generted a output, with name foo and value bar.
+            Reference in next step
+                in second step we need to access this: ${{ steps.generate-foo.outputs.foo }}
+            
+    B. Enviroment Variables: Temporary sharing: for setting up a simple variable 
+
+        Write to $GITHUB_ENV: echo "FOO=bar" >> "$GITHUB_ENV"
+
+        Access: we can use its variabel name like '$FOO' to acess the values 
+
+        Note this is only accessabel with in that job only.
+
+
+2. Inter-job(sare with seperate different jobs)
+
+    this is tricky coz every job rus its seperate vm , to memory sharing is quite difficult between them.
+
+    Producer - Consumer
+
+        * define "output:" in producer job
+            outputs:
+                foo: ${{ steps.generate-foo.outputs.foo }}
+
+            this makes that output the public interface of that job.
+
+        * connect the consumer job : use 'needs'
+            needs: producer -> this is important 
+
+            this indicates that the consuemr has to wait for producer and use that data send by producer in it.
+
+            Access the data: 
+                ${{ needs.producer.outputs.foo }}
+            
+
+
