@@ -101,4 +101,14 @@ pass vaiable:
                 ${{ needs.producer.outputs.foo }}
             
 
+=======================================================================================================================================
 
+Secrets and Variables
+
+Github has a built in mechanism to store secret and variables:
+    * Github Organizations
+    * Repository
+    * Enviroment(Staging/Prod)
+
+    we can only set those secret and variabe for Enviroment, those org or repository we have to use github ui for that.
+    
