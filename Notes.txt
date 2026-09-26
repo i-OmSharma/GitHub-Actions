@@ -55,3 +55,6 @@ we can use "need" key to ake Dependency whih depends on what
 workflow form a Directed Acyclic graph(DAG) -> we need to specife the structure
 
 it helps use to tak eoutput from one job and pass on to another job
+
+
+for the env pass it follows the same global and local rule as coding language
