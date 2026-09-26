@@ -1,0 +1,44 @@
+WorkFlow types:
+1. Validate
+ - Lint
+ - Test
+ - Static analysis(eg, Securoty, codeQulaity)
+
+2. Build 
+ - Executable
+ - Container Image
+
+3. Deploy
+ - Push based deploys
+ - update tags for git-ops deploys
+
+4. Repo Automations
+ - Release automations(eg, release-please)
+ - Stale Issues/PRs
+ - Dependency upgrades(eg, remote)
+
+An event triggers starts a workflow, and the workflow then runs its defines jobs or tasks.
+Within that workflow we have 1 or more jobs each of those job have one or more steps within them and they can be ordered in secipic manner and 
+runner is the actual server env that is going to execute the job
+
+Between the steps you are in same compute env.
+Within the job you are different compute env.
+
+keep in mind for pasing data, sharing env variables or state between this element. 
+
+workflow is the entire thing 
+job is the Object within the workflow
+Steps is is the listes within that specific job
+
+Ubunutu is deault by gh
+
+
+yml breake down:
+
+on: -> The trigger. Listen for an event to initiate a new workflow run
+job: -> actual job
+    job identifier: -> this is required coz it runs its seperate vm, it spins a seperate vm for each job
+        runs-on: -> the instance it will run on
+
+        steps: -> the step to execute
+            - run: -> run the raw command-line instruction
