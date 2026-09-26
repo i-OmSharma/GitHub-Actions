@@ -7,4 +7,4 @@ jobs:
   say-hello-inline-bash:
     runs-on: ubuntu-24.04
     steps:
-      - run: eacho "Hello from inline bash script in a Github Actions Workflow by Om!"
+      - run: echo "Hello from inline bash script in a Github Actions Workflow by Om!"
