@@ -1,0 +1,10 @@
+name: Hello World
+
+on:
+  workflow_dispatch:
+
+jobs:
+  say-hello-inline-bash:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: eacho "Hello from inline bash script in a GithubActions Workflow by Om!"
