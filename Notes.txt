@@ -35,6 +35,7 @@ Ubunutu is deault by gh
 
 yml breake down:
 
+name: -> name of the workflow
 on: -> The trigger. Listen for an event to initiate a new workflow run
 job: -> actual job
     job identifier: -> this is required coz it runs its seperate vm, it spins a seperate vm for each job
@@ -42,3 +43,15 @@ job: -> actual job
 
         steps: -> the step to execute
             - run: -> run the raw command-line instruction
+            - uses: -> run a pre-built action
+
+            with: -> pass input parameters to a GitHub Action (a reusable piece of workflow logic)
+
+            who-to-greet" -> is NOT a GitHub keyword. It is a custom input parameter defined by a specific action you're using.
+
+
+we can add structure so that we can make it more structured by adding the dependency in form of need specification.
+we can use "need" key to ake Dependency whih depends on what 
+workflow form a Directed Acyclic graph(DAG) -> we need to specife the structure
+
+it helps use to tak eoutput from one job and pass on to another job
