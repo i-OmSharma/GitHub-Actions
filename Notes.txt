@@ -160,3 +160,14 @@ The runner type specified controller:
 - The resource available
 
 ======================================================================================================================================
+
+Persistent data (Artifact)
+
+By default jobs run in ephimeral environment
+- Articat provide a mechanism to persist data beyond the life cycle of the job.
+
+There are two actions provided by github which are,
+- action/upload-Artifact@v4 -> used for upload 
+- action/download-Artifact@v4(what ever version you wana use) -> used for consume
+
+Artifacts are also shown in gh ui we can use them to make a store of test results or any other important.  
