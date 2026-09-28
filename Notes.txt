@@ -170,4 +170,25 @@ There are two actions provided by github which are,
 - action/upload-Artifact@v4 -> used for upload 
 - action/download-Artifact@v4(what ever version you wana use) -> used for consume
 
-Artifacts are also shown in gh ui we can use them to make a store of test results or any other important.  
+Artifacts are also shown in gh ui we can use them to make a store of test results or any other important.
+
+======================================================================================================================================
+
+By default jobs run in ephimeral enviroment 
+
+Caching allow for resusing data across jobs
+
+Github provides caching action:
+
+- actions/cache@v4 (what ever versio you are using)
+- Data will beusploaded to remote object storage 
+- Capped y 10gb by default 
+
+
+Restore Attempt: First, the job attempts to restore the cache using a defined cache key. If a match is found (a cache hit), the workflow can skip the installation steps entirely.
+Conditional Check: If the restore fails (a cache miss), the workflow proceeds to the next steps, which are often wrapped in an if condition to only execute when the cache is missing.
+Populate and Save: During this "miss" phase, the workflow performs the necessary work—such as installing dependencies or building files—and includes a step to save those newly created files into the cache so they are available for future runs.
+
+
+
+
