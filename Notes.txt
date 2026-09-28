@@ -284,3 +284,9 @@ there are two primary mechanism to auth to external systems:
     - Short-lived credential retrived in runtime 
     - More secure 
     - Require service to support OIDC
+
+======================================================================================================================================
+
+Cncurrency -> cotrol how multiple runs of the same workflow should be handled.
+matric -> enables the executing multiple coppies of a job with different config.
+if -> allows for conditional execution of job and steps.
