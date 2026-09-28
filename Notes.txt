@@ -1,3 +1,12 @@
+If CI fails, the code never reaches production. It’s a gatekeeper.
+CD is about getting value to the user as fast as possible.
+
+GitHub Actions. It is the engine that runs this pipeline.
+
+
+
+In GitHub Actions we have pipeline -> workflow
+
 WorkFlow types:
 1. Validate
  - Lint
@@ -16,6 +25,13 @@ WorkFlow types:
  - Release automations(eg, release-please)
  - Stale Issues/PRs
  - Dependency upgrades(eg, remote)
+
+
+Workflow: The entire CI/CD process (the .yml file).
+Job: A specific stage (e.g., "Run Tests", "Build Docker Image").
+Step: Individual commands inside a job (e.g., npm install, go test).
+
+every time you push code, this entire process runs in a fresh, clean environment (the Runner).
 
 An event triggers starts a workflow, and the workflow then runs its defines jobs or tasks.
 Within that workflow we have 1 or more jobs each of those job have one or more steps within them and they can be ordered in secipic manner and 
@@ -189,6 +205,68 @@ Restore Attempt: First, the job attempts to restore the cache using a defined ca
 Conditional Check: If the restore fails (a cache miss), the workflow proceeds to the next steps, which are often wrapped in an if condition to only execute when the cache is missing.
 Populate and Save: During this "miss" phase, the workflow performs the necessary work—such as installing dependencies or building files—and includes a step to save those newly created files into the cache so they are available for future runs.
 
+==============================================================================================================================================
 
+Token Permission:
+Short lived github access token is generated for each workflow run.
 
+By default it has content and packages rand only Permission.
+The contents permission will allow to pull the code itself, which is going to be a key for doing anythin gwith your applicaiton
+Packages is for github package registry. you will be able to read from their.
 
+################
+# Default Permissions
+################
+# permissions:
+#   contents: read
+#   packages: read
+################
+
+################
+# All Permission Types
+################
+# permissions:
+#   actions: read|write|none
+#   attestations: read|write|none
+#   checks: read|write|none
+#   contents: read|write|none
+#   deployments: read|write|none
+#   id-token: write|none
+#   issues: read|write|none
+#   models: read|none
+#   discussions: read|write|none
+#   packages: read|write|none
+#   pages: read|write|none
+#   pull-requests: read|write|none
+#   security-events: read|write|none
+#   statuses: read|write|none
+################
+
+################
+# Default Permissions
+################
+permissions:
+    contents:read
+    packages:read
+################
+
+################
+# All Permission Types
+################
+permissions:
+
+    actions: read/write|none
+    attestations: read/write|none
+    checks: read/write|none
+    contents: read/write|none
+    deployments: read/write|none
+    id-token: write none
+    issues: read/write|none
+    models: read |none
+    discussions: read/write|none
+    packages: read/write|none
+    pages: read/write|none
+    pull-requests: read/write|none
+    security-events: read/write|none
+    statuses: read/write|none
+################
