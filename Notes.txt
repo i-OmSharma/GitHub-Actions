@@ -270,3 +270,17 @@ permissions:
     security-events: read/write|none
     statuses: read/write|none
 ################
+
+Third party permission Auth
+
+there are two primary mechanism to auth to external systems:
+
+1. Static Credentials (like API key)
+    - Long lived via credential lived via GHA repo/env secret
+    - Less secure
+    - Compatable with everything
+
+2.OIDC Token -> Open ID connect
+    - Short-lived credential retrived in runtime 
+    - More secure 
+    - Require service to support OIDC
