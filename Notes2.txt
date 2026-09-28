@@ -1,0 +1,17 @@
+Writing Resuable Actions
+
+- Composite Actions
+- Resuable Actions
+- JS/TS Actions
+- Container Actios
+
+
+
+Composite Action: the easiest way to bundle up logic that you want to reuse across multiple workflows or across different jobs within the same workflow. 
+                    It allows you to package a sequence of steps into a single file, typically named action.yml, which can then be invoked in your workflow files using a relative path.
+
+Resuable Actions: These function as a job within another workflow and are best used when you need to enforce strict standardization across the entire workflow structure.
+
+Js/Ts Actions: JavaScript and TypeScript actions are defined as the most native way to author GitHub Actions, allowing developers to build programmatic logic that runs directly within the GitHub Actions runner using the Node.js runtime.
+
+Cotainer Actions: A container-based action is defined by the instructor as an action that leverages a Docker container to run, which allows developers to use any programming language or runtime environment they prefer 
