@@ -113,6 +113,14 @@ Github has a built in mechanism to store secret and variables:
     we can only set those secret and variabe for Enviroment, those org we have to use github ui for that.
 
 =======================================================================================================================================
+CONTEXTS:
+
+${{ needs.producer.outputs.foo }}
+${{ steps.generate-foo.outputs.foo }}
+${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
+${{ vars.EXAMPLE_REPOSITORY_VARIABLE }}
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 needs -> outputs & results from dependent jobs
 
@@ -136,11 +144,19 @@ job -> current job status; container/service info
 runner -> runner OS/arch/temp/tool_cache
 
 inputs -> parameters to reusable/workflow_dispatch workflows
---------------------------------------------------------------------------------------------------------------------------------
-${{ needs.producer.outputs.foo }}
+======================================================================================================================================
 
-${{ steps.generate-foo.outputs.foo }}
+Runner Types:
 
-${{ secrets.EXAMPLE_REPOSITORY_SECRET }}
+we have 
+1.Github Hosted
+2.3rd part runners
+3.Self Hosted
 
-${{ vars.EXAMPLE_REPOSITORY_VARIABLE }}
+where the workflow is executed is ontrolled by 'runs-on' 
+
+The runner type specified controller:
+- The VM image used(the OS+ Dependecies)
+- The resource available
+
+======================================================================================================================================
