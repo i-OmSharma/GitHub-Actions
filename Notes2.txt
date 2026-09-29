@@ -40,3 +40,49 @@ Cotainer Actions: A container-based action is defined by the instructor as an ac
              ▲
              │
         (Your Choice)
+
+========================================================================================================================
+
+Specific formatting to enable communication with GH Actions to cotroll workflow's behaviour
+
+
+                                                   [ Start: Workflow Logic Decision ]
+                                                                     │
+                                                   Is there a reputable Marketplace action?
+                                                                     ╱ ╲
+                                                                    ╱   ╲
+                                                               YES ╱     ╲ NO
+                                                                  ╱       ╲
+                                       ┌───────────────────────┘         ▼
+                                       │                      Is a single Unix command
+                                       ▼                        sequence sufficient?
+                                    【 Use Marketplace Action 】          ╱ ╲
+                                                                        ╱   ╲
+                                                                  YES ╱     ╲ NO
+                                                                     ╱       ╲
+                                             ┌───────────────────────┘         ▼
+                                             │                        Need more expressivity?
+                                             ▼                                  ╱ ╲
+                                    【 Use Inline Shell Script 】                ╱   ╲
+                                                                           YES ╱     ╲ NO
+                                                                              ╱       ╲
+                                                   ┌───────────────────────┘         ▼
+                                                   │                       【 Use Task Runner to
+                                                   ▼                        Execute Shell Script 】
+                                                Need external
+                                                dependencies?
+                                                   ╱ ╲
+                                                  ╱   ╲
+                                             YES ╱     ╲ NO
+                                                ╱       ╲
+                                       ┌───────┘         ▼
+                                       │         【 Use In-Repo Python
+                                       ▼            (or other) Script 】
+                                    Do you like JS/TS?
+                                       ╱ ╲
+                                      ╱   ╲
+                                     ╱     ╲
+                                    YES     NO
+                                    ▼        ▼
+                     【 Use JavaScript or   【 Use Container Action 】
+                     TypeScript Action 】
